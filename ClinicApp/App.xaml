@@ -1,0 +1,97 @@
+﻿<Application x:Class="ClinicApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ClinicApp"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <!--Arrow button template-->
+        <ControlTemplate x:Key="ArrowButton" TargetType="Button">
+            <Grid x:Name="templateRefreshBtn" Width="45" Height="45">
+                <Grid.Background>
+                    <ImageBrush ImageSource="Resourses/Images/back_arrow.png" Stretch="Uniform"/>
+                </Grid.Background>
+            </Grid>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="templateRefreshBtn" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter TargetName="templateRefreshBtn" Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter TargetName="templateRefreshBtn" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                    <Setter TargetName="templateRefreshBtn" Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        <!--button template-->
+        <ControlTemplate TargetType="{x:Type Button}" x:Key="GreenBlueButton">
+            <Border x:Name="templateBtn" Height="25">
+                <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"/>
+                <Border.BorderThickness>2</Border.BorderThickness>
+                <Border.BorderBrush>Black</Border.BorderBrush>
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#c9f3fd" Offset="0"/>
+                            <GradientStop Color="#40f79c" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="templateBtn" Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                        <Setter TargetName="templateBtn" Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter TargetName="templateBtn" Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#40f79c" Offset="0"/>
+                                    <GradientStop Color="#c9f3fd" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter TargetName="templateBtn" Property="RenderTransform">
+                            <Setter.Value>
+                                <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        <!--DataGrid style-->
+        <Style TargetType="{x:Type DataGrid}">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontFamily" Value="Sitka Display"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+            <Setter Property="CanUserDeleteRows" Value="False"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="ColumnWidth" Value="*"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+        </Style>
+        <!--grid tablet-->
+        <Style TargetType="{x:Type Grid}" x:Key="GridTablet">
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/Resourses/Images/Tablet.png" AlignmentX="Left" AlignmentY="Top" TileMode="Tile" Stretch="None"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>
